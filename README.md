@@ -1,27 +1,72 @@
-# NotesApp
+# Notes Application
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.3.
+## Frontend Setup (Angular)
 
-## Development server
+### Prerequisites
+- **Node.js**: Version 18 or higher
+- **npm**: Comes with Node.js installation
+- **Angular CLI**: Installed globally
+  ```bash
+  npm install -g @angular/cli
+  ```
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### Steps to Run the Frontend
 
-## Code scaffolding
+1. **Clone the Repository**
+   ```bash
+   git clone https://github.com/goraneld/notes-app-frontend.git
+   cd notes-app-frontend
+   ```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+2. **Install Dependencies**
+   ```bash
+   npm install
+   ```
 
-## Build
+3. **Set Up Proxy Configuration**
+   - Ensure `src/proxy.conf.json` is configured to proxy API requests to the backend:
+     ```json
+     {
+       "/api": {
+         "target": "http://localhost:8080",
+         "secure": false,
+         "changeOrigin": true
+       }
+     }
+     ```
+   - Update `angular.json` to include the proxy configuration:
+     ```json
+     "architect": {
+       "serve": {
+         "options": {
+           "proxyConfig": "src/proxy.conf.json"
+         }
+       }
+     }
+     ```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+4. **Run the Application**
+   ```bash
+   ng serve
+   ```
+   The frontend server will start on `http://localhost:4200`.
 
-## Running unit tests
+5. **Access the Application**
+   - Open your browser and navigate to `http://localhost:4200`.
+   - Log in with the default credentials:
+     - Username: `user`
+     - Password: `password`
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+---
 
-## Running end-to-end tests
+## Prerequisites Summary
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### Backend:
+- JDK 17+
+- Maven 3.6+
+- MongoDB (local or hosted)
 
-## Further help
+### Frontend:
+- Node.js 18+
+- Angular CLI
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.

@@ -1,0 +1,16 @@
+mat-toolbar {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  mat-list-item {
+    cursor: pointer;
+  }
+  
+  .error-card {
+    color: white;
+    background-color: #f44336;
+    padding: 16px;
+    margin: 16px 0;
+  }
+  

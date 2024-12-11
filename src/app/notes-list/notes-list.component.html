@@ -1,0 +1,25 @@
+<mat-toolbar color="primary">
+    <span>Note-Taking Application</span>
+    <button mat-button routerLink="/notes/new">Add Note</button>
+  </mat-toolbar>
+  
+  <div *ngIf="notes else loading">
+    <mat-list>
+      <mat-list-item *ngFor="let note of notes" (click)="viewNoteDetail(note.id)">
+        <mat-icon mat-list-icon>note</mat-icon>
+        <h3 mat-line>{{ note.title }}</h3>
+        <p mat-line>{{ note.content }}</p>
+      </mat-list-item>
+    </mat-list>
+  </div>
+  
+  <ng-template #loading>
+    <div color="primary" mode="indeterminate">Loading...</div>
+  </ng-template>
+  
+  <div *ngIf="errorMessage">
+    <mat-card class="error-card">
+      <p>{{ errorMessage }}</p>
+    </mat-card>
+  </div>
+  
